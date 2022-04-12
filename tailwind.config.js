@@ -12,10 +12,18 @@ const rotateY = plugin(function ({ addUtilities }) {
 	});
 });
 
+const delay = plugin(function ({ addUtilities }) {
+	addUtilities({
+		".delay-0": {
+			transitionDelay: "0",
+		},
+	});
+});
+
 module.exports = {
 	content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
 	theme: {
 		extend: {},
 	},
-	plugins: [rotateY],
+	plugins: [rotateY, delay],
 };

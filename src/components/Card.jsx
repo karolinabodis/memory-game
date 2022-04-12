@@ -14,20 +14,20 @@ export default function Card({ card, handleSelect, flipped, disabled }) {
 				// initial: rotate-y-90
 				className={
 					flipped && card.matched
-						? "object-cover object-top w-full h-full transition-opacity opacity-0 cursor-auto"
+						? "object-cover object-top w-full h-full border border-gray-400 cursor-auto transition-all ease-in opacity-0 rotate-y-0 delay-200"
 						: flipped
-						? "object-cover object-top w-full h-full border border-gray-400 rotate-y-0 transition-transform delay-150"
-						: "absolute inset-0 w-full h-full rotate-y-90"
+						? "object-cover object-top w-full h-full border border-gray-400 transition-transform ease-in  rotate-y-0"
+						: "absolute object-cover object-top w-full h-full border border-gray-400 transition-transform ease-in  rotate-y-90"
 				}
 				alt="cat"
 			/>
 
 			<div
-				// initial: rotate-y-0"
+				// initial: rotate-y-0
 				className={
 					flipped
-						? "rotate-y-90"
-						: "w-full h-full bg-gray-300 border border-gray-400 rotate-y-0 transition-transform delay-150"
+						? "w-full h-full bg-gray-300 border border-gray-400 rotate-y-90 delay-0"
+						: "w-full h-full bg-gray-300 border border-gray-400 transition-transform ease-in  rotate-y-0 delay-200"
 				}
 				onClick={handleClick}
 			></div>
