@@ -23,7 +23,7 @@ function App() {
 		fetch(
 			"https://api.thecatapi.com/v1/images/search?format=json&limit=12&mime_types=jpg&size=small"
 		)
-			.then((res) => res.json()) // parse JSON into JS
+			.then((response) => response.json()) // parse JSON into JS
 			.then((data) => setAllData(data)); // get DATA back
 	}, [cards]);
 
@@ -49,7 +49,7 @@ function App() {
 		cardImages = [];
 		setCounter(0);
 		setTurns(0);
-		// reset if either of one remained selected from previous a round
+		// reset if either of one remained selected from previous round
 		setCardOne(null);
 		setCardTwo(null);
 	}
@@ -83,13 +83,12 @@ function App() {
 
 				resetSelection();
 			} else {
-				setCounter(counter);
 				setTimeout(() => {
 					resetSelection();
 				}, 1000);
 			}
 		}
-	}, [cardOne, cardTwo, counter]);
+	}, [cardOne, cardTwo]);
 
 	// reset card selection
 	function resetSelection() {
@@ -99,6 +98,7 @@ function App() {
 		setDisabled(false);
 	}
 
+	// Card component
 	const card = cards.map((card) => (
 		<Card
 			key={card.randomId}
@@ -122,13 +122,13 @@ function App() {
 					""
 				)}
 				{counter === 12 ? (
-					<p className="ml-10 text-xl">Yay! You have found every cat.</p>
+					<p className="ml-10 text-xl">Yay! You have found every cat 😻</p>
 				) : (
 					""
 				)}
 			</div>
 			<div className="flex justify-center">
-				<Button handleClick={shuffleCards} />
+				<Button title="New Game" handleClick={shuffleCards} />
 			</div>
 		</div>
 	);
